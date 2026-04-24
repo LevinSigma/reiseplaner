@@ -1,184 +1,380 @@
-.counter {
+/* AXA-Farben für das Reiseplaner-Formular */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #d7e4ff; /* AXA Dunkelblau */
+  padding: 20px;
+  color: #333;
+}
+
+form {
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #FFFFFF; /* Weiß */
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-top: 4px solid #00A3E0; /* AXA Hellblau */
+}
+
+input, select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #E0E0E0;
+  border-radius: 4px;
+  box-sizing: border-box;
   font-size: 16px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  color: var(--accent);
-  background: var(--accent-bg);
-  border: 2px solid transparent;
-  transition: border-color 0.3s;
-  margin-bottom: 24px;
-
-  &:hover {
-    border-color: var(--accent-border);
-  }
-  &:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
+  transition: border-color 0.3s ease;
 }
 
-.hero {
-  position: relative;
-
-  .base,
-  .framework,
-  .vite {
-    inset-inline: 0;
-    margin: 0 auto;
-  }
-
-  .base {
-    width: 170px;
-    position: relative;
-    z-index: 0;
-  }
-
-  .framework,
-  .vite {
-    position: absolute;
-  }
-
-  .framework {
-    z-index: 1;
-    top: 34px;
-    height: 28px;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
-      scale(1.4);
-  }
-
-  .vite {
-    z-index: 0;
-    top: 107px;
-    height: 26px;
-    width: auto;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
-      scale(0.8);
-  }
+input:focus, select:focus {
+  outline: none;
+  border-color: #00A3E0; /* AXA Hellblau */
+  box-shadow: 0 0 5px rgba(0, 163, 224, 0.3);
 }
 
-#center {
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #003399; /* AXA Dunkelblau */
+  font-size: 14px;
+}
+
+button {
+  background-color: #003399; /* AXA Dunkelblau */
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #002266; /* Dunkleres AXA Blau */
+}
+
+/* Spezielle Gestaltung für Date-Inputs */
+input[type="date"] {
+  background-color: #F8F9FA;
+  border: 2px solid #00A3E0; /* AXA Hellblau */
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300A3E0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 20px;
+  padding-right: 40px;
+}
+
+input[type="date"]:focus {
+  border-color: #003399; /* AXA Dunkelblau */
+  box-shadow: 0 0 8px rgba(0, 163, 224, 0.4);
+  outline: none;
+}
+
+/* Labels für Date-Inputs hervorheben */
+label[for="departure-date"],
+label[for="return-date"] {
+  color: #00A3E0; /* AXA Hellblau */
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+}
+
+/* Packlisten Styles */
+.packlist-container {
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.packlist-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.packlist-button {
+  padding: 12px 24px;
+  background-color: #003399;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.packlist-button:hover {
+  background-color: #002266;
+  transform: translateY(-2px);
+}
+
+.packlist-button.active {
+  background-color: #00A3E0;
+  color: #003399;
+  box-shadow: 0 4px 12px rgba(0, 163, 224, 0.4);
+}
+
+.packlist-card {
+  background-color: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-top: 4px solid #00A3E0;
+}
+
+.packlist-title {
+  color: #003399;
+  margin-bottom: 25px;
+  font-size: 24px;
+  text-align: center;
+}
+
+.packlist-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background-color 0.2s ease;
+}
+
+.packlist-item:last-child {
+  border-bottom: none;
+}
+
+.packlist-item:hover {
+  background-color: #f8f9fa;
+}
+
+.packlist-checkbox {
+  width: 24px;
+  height: 24px;
+  border: 2px solid #00A3E0;
+  border-radius: 50%;
+  margin-right: 15px;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.packlist-checkbox:hover {
+  border-color: #003399;
+  box-shadow: 0 0 8px rgba(0, 163, 224, 0.3);
+}
+
+.packlist-text {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.4;
+}
+
+/* Neue Packlisten Styles für alle Listen */
+.packlists-container {
   display: flex;
   flex-direction: column;
-  gap: 25px;
-  place-content: center;
-  place-items: center;
-  flex-grow: 1;
-
-  @media (max-width: 1024px) {
-    padding: 32px 20px 24px;
-    gap: 18px;
-  }
+  gap: 30px;
 }
 
-#next-steps {
-  display: flex;
-  border-top: 1px solid var(--border);
-  text-align: left;
-
-  & > div {
-    flex: 1 1 0;
-    padding: 32px;
-    @media (max-width: 1024px) {
-      padding: 24px 20px;
-    }
-  }
-
-  .icon {
-    margin-bottom: 16px;
-    width: 22px;
-    height: 22px;
-  }
-
-  @media (max-width: 1024px) {
-    flex-direction: column;
-    text-align: center;
-  }
+.packlist-card-simple {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  border-top: 4px solid #00A3E0;
+  width: 48%;
+  display: inline-block;
+  vertical-align: top;
 }
 
-#docs {
-  border-right: 1px solid var(--border);
-
-  @media (max-width: 1024px) {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-  }
+.packlist-title-simple {
+  color: #003399;
+  margin-bottom: 15px;
+  text-align: center;
+  font-size: 20px;
 }
 
-#next-steps ul {
+.packlist-list {
   list-style: none;
   padding: 0;
+}
+
+.packlist-item-simple {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
   display: flex;
-  gap: 8px;
-  margin: 32px 0 0;
-
-  .logo {
-    height: 18px;
-  }
-
-  a {
-    color: var(--text-h);
-    font-size: 16px;
-    border-radius: 6px;
-    background: var(--social-bg);
-    display: flex;
-    padding: 6px 12px;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    transition: box-shadow 0.3s;
-
-    &:hover {
-      box-shadow: var(--shadow);
-    }
-    .button-icon {
-      height: 18px;
-      width: 18px;
-    }
-  }
-
-  @media (max-width: 1024px) {
-    margin-top: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    li {
-      flex: 1 1 calc(50% - 8px);
-    }
-
-    a {
-      width: 100%;
-      justify-content: center;
-      box-sizing: border-box;
-    }
-  }
+  align-items: center;
 }
 
-#spacer {
-  height: 88px;
-  border-top: 1px solid var(--border);
-  @media (max-width: 1024px) {
-    height: 48px;
-  }
+.packlist-item-simple:last-child {
+  border-bottom: none;
 }
 
-.ticks {
-  position: relative;
+.packlist-checkbox-input {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  cursor: pointer;
+  accent-color: #00A3E0;
+}
+
+.packlist-label {
+  cursor: pointer;
+  font-size: 16px;
+  color: #333;
+  user-select: none;
+}
+
+.packlist-checkbox-simple {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #00A3E0;
+  border-radius: 50%;
+  margin-right: 10px;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Reiseinformationen Styles */
+.info-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.packlist-card-simple {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  border-top: 4px solid #00A3E0;
+  width: 48%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.travel-info-card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  border-top: 4px solid #00A3E0;
+  width: 48%;
+}
+
+.travel-info-title {
+  color: #003399;
+  margin-bottom: 15px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.travel-info-list {
+  list-style: none;
+  padding: 0;
+}
+
+.travel-info-item {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 16px;
+  color: #333;
+}
+
+.travel-info-item:last-child {
+  border-bottom: none;
+}
+
+.travel-info-item strong {
+  color: #00A3E0;
+  font-weight: 600;
+}
+
+/* Reisetipps Styles */
+.travel-tips-card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  border-top: 4px solid #00A3E0;
+  margin-top: 20px;
   width: 100%;
+}
 
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: -4.5px;
-    border: 5px solid transparent;
-  }
+.travel-tips-title {
+  color: #003399;
+  margin-bottom: 15px;
+  text-align: center;
+  font-size: 20px;
+}
 
-  &::before {
-    left: 0;
-    border-left-color: var(--border);
-  }
-  &::after {
-    right: 0;
-    border-right-color: var(--border);
-  }
+.travel-tips-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+.travel-tips-item {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-left: 4px solid #00A3E0;
+  border-radius: 4px;
+  font-size: 16px;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* Reisetipps inline in Reiseinformationen */
+.travel-tips-subtitle {
+  color: #00A3E0;
+  font-size: 16px;
+  margin-top: 20px;
+  margin-bottom: 12px;
+  font-weight: 600;
+  border-top: 1px solid #eee;
+  padding-top: 15px;
+}
+
+.travel-tips-list-inline {
+  list-style: none;
+  padding: 0;
+}
+
+.travel-tips-item-inline {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 15px;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+
+.travel-tips-item-inline:last-child {
+  border-bottom: none;
+}
+
+.travel-tips-item-inline::before {
+  content: '✓';
+  color: #00A3E0;
+  font-weight: bold;
+  margin-right: 10px;
+  font-size: 18px;
 }
